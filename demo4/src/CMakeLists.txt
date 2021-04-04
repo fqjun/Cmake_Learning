@@ -1,0 +1,14 @@
+# PROJECT_SOURCE_DIR 为根目录
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/mylib) # ${PROJECT_SOURCE_DIR} 相当于 .
+
+# 将可执行文件的保存路径设置为 build/bin 下
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+
+# 自动搜索所有变量名
+AUX_SOURCE_DIRECTORY(./ DIR_SCRS)
+
+# TODO：
+ADD_EXECUTABLE(demo ${DIR_SCRS})
+
+# TODO：src 文件需要链接的链接库文件夹
+TARGET_LINK_LIBRARIES(demo Mylib)
